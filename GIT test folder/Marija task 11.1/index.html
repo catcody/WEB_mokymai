@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panda bandelės</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="">
+        <div id="title">
+            <h1 id="panda" class="white">Panda</h1>
+            <h1 id="bakery" class="black">bandelės</h1>
+        </div>
+    </header>
+
+<!-- inputa'i info-wrapper dive -->
+    <div class="info-wrapper block-wrapper">
+        <h2>Pandinė informacija o.o</h2>
+
+        <div class="input-wrapper">
+            <label for="employees-count">Pandų skaičius:</label>
+            <input id="employees-count" class="" type="number" min="0" step="1" value="0" autofocus size="4" required placeholder="Kiek pandų keps bandeles?">
+            <span class="error">Pandų skaičius negali būti neigiamas.</span>
+        </div>
+
+        <div class="input-wrapper">
+            <label for="employee-makes-perday">Viena panda iškepa bandelių per dieną:</label>
+            <input id="employee-makes-perday" type="number" min="0" step="1" value="0" required placeholder="Kiek bandelių iškepa viena panda per dieną?">
+            <span class="error">Iškeptų pandų bandelių skaičius negali būti neigiamas.</span>
+        </div>
+
+        <div class="input-wrapper">
+            <label for="order-amount">Užsakymų skaičius:</label>
+            <input id="order-amount" type="number" min="0" step="1" value="0" required placeholder="Kiek pandų bandelių užsakė klientai?">
+            <span class="error">Užsakymų skaičius negali būti neigiamas.</span>
+        </div>
+    <!-- butttons -->
+        <button id="calculate">Papandyk skaičiuoti -.o</button>
+        <button id="reset">Atnaujinti</button>
+    </div>
+
+    <div class="calculation-wrapper block-wrapper">
+        <h2>Skaičiavimai -.-</h2>
+        <div id="results">
+            <p>Kol kas pandų nerasta -_-</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
