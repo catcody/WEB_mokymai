@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <script>
+        document.getElementById("demo").innerHTML = "Hello JavaScript!";
+    </script>
+    <script src="script.js"></script>
+    <button type="button" onclick="window.alert('Įvyko klaida -_-');" ondblclick="">6 užduotis</button>
+
+
+
+    <!-- 8 užduotis -->
+    <p id="task8">
+        <span>8 užduotis.</span> JavaScript can change the content of an HTML element:
+    </p>
+
+    <button type="button" onclick="document.getElementById('demo').innerHTML = 'You just clicked the button';" ondblclick="document.getElementById('demo').innerHTML = 'This is a demonstration, where text will change after clicking button.';">Click Me!</button>
+
+    <button type="button" onclick="document.getElementById('demo').innerHTML = 'This is a demonstration, where text will change after clicking button.';">Unclick</button>
+
+    <p id="demo">This is a demonstration, where text will change after clicking button.</p>
+
+
+</body>
+</html>

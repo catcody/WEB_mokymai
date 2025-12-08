@@ -1,0 +1,16 @@
+# GIT apsimeta, kad sio failo nemato, 
+# cia dedami failai ir folderiai, kur gali buti jautri informacija, slaptazodziai, nuotraukos, ...
+node-modules/
+
+.env
+
+# Exclude all image files
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+
+#  OR exclude entire folders with photos
+img/
+photos/
