@@ -2,18 +2,29 @@
 
 let calculateButton = document.getElementById('calculate');
 
-// cia nurodoma kas nutiks paspaudus mygtuka "Skaičiuoti"
 calculateButton.addEventListener('click', function() {
 
     // let employeesCount = parseInt(document.getElementById('employees-count').value);
     let employeesCount = document.getElementById('employees-count').valueAsNumber; //kitas budas gauti number reiksme
-    let emplyeeMakesPerday = parseInt(document.getElementById('employee-makes-perday').value);
+    let employeeMakesPerday = parseInt(document.getElementById('employee-makes-perday').value);
     let orderAmount = parseInt(document.getElementById('order-amount').value);
 
-    let bakeryTotal = employeesCount * emplyeeMakesPerday;
-    let isBakeryAbleToFulfillOrder = bakeryTotal >= orderAmount;
 
-    console.log('Bakery can fulfill order:', isBakeryAbleToFulfillOrder);
+    let bakeryTotal = employeesCount * employeeMakesPerday;
+    let isBakeryAbleToFulfillOrder = bakeryTotal >= orderAmount;   
+
+    // extra calculations
+    let daysNeeded = orderAmount / bakeryTotal;
+    let daysNeededRounded = Math.round(daysNeeded);
+    let requiredWorkers = Math.ceil(orderAmount / employeeMakesPerday);
+
+    let hoursPerDay = 8;
+    // Production per worker per hour
+    let perHourProduction = employeeMakesPerday / hoursPerDay;
+
+    // Total bakery production per hour
+    let totalHourlyProduction = employeesCount * perHourProduction;
+    let requiredHours = Math.ceil(orderAmount / totalHourlyProduction);
 
     // let logInfo ={
     //     bakeryTotal,
@@ -22,11 +33,19 @@ calculateButton.addEventListener('click', function() {
     // console.log(logInfo);
 
     let resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = `<p><strong>Kepykla iškeps per dieną kepalų: </strong></p> ${bakeryTotal}`; //isvalome pries tai buvusi rezultata
-    resultsDiv.innerHTML += `<p><strong>Užsakymo kiekis: </strong></p> ${orderAmount}`; //pridedame nauja rezultata
+    resultsDiv.innerHTML = `<p><strong>Kepykla iškeps per dieną kepalų: </strong></p> ${bakeryTotal}`;
 
-    resultsDiv.innerHTML += `<p><strong>Ar kepykla galės įvykdyti užsakymą? </strong></p> ${isBakeryAbleToFulfillOrder ? 'Taip' : 'Ne'}`; //pridedame nauja rezultata
+    resultsDiv.innerHTML += `<p><strong>Užsakymo dydis: </strong></p> ${orderAmount}`;
+
+    resultsDiv.innerHTML += `<p><strong>Ar kepykla galės įvykdyti užsakymą? </strong></p> ${isBakeryAbleToFulfillOrder ? 'Taip' : 'Ne'}`;
+// extra
+    resultsDiv.innerHTML += `<p><strong>Kiek dienų reikės užsakymui iškepti: </strong></p> ${daysNeededRounded}`;
+
+    resultsDiv.innerHTML += `<p><strong>Reikalingas pandų skaičius užsakymui įvykdyti per dieną: </strong></p> ${requiredWorkers}`;
+
+    resultsDiv.innerHTML += `<p><strong>Reikalingas valandų kiekis užsakymui įvykdyti per dieną su turimomis pandomis: </strong></p> ${requiredHours}`;
 });
+
 
 
 // Validacija - darbuotojų skaicius negali buti neigiamas
@@ -66,7 +85,7 @@ document.getElementById('order-amount').addEventListener('input', function(event
     if (inputValue < 0) {
         event.target.classList.add('error');
 
-        event.target.nextElementSibling.classList.add('show'); //kitas budas pasiekti error span
+        event.target.nextElementSibling.classList.add('show');
     } else {
         event.target.classList.remove('error');
         event.target.nextElementSibling.classList.remove('show');
@@ -83,51 +102,3 @@ document.getElementById('reset').addEventListener('click', function(){
     document.getElementById('order-amount').value = 0;
     document.getElementById('results').innerHTML = '<p>Kol kas skaičiavimai neatlikti.</p>';
 });
-
-// document.getElementById('reset').addEventListener('click', function() {
-//     document.getElementById('employees-count').value = 0;
-//     document.getElementById('employee-makes-perday').value = 0;
-//     document.getElementById('order-amount').value = 0;
-
-//     document.getElementById('results').innerHTML = '';
-
-//     //pasalinti error jei yra
-//     let employeesInput = document.getElementById('employees-count');
-//     employeesInput.classList.remove('error');
-//     let errorSpan = document.querySelector('#employees-count + span.error');
-//     errorSpan.classList.remove('show');
-// });
-
-
-
-
-
-//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// kursorius uzvedimas and pavadinimo
-
-// document.getElementById('title').addEventListener('mouseenter', function(event) {
-//     event.target.classList.add('highlight');
-
-// });
-
-// document.getElementById('title').addEventListener('mouseleave', function(event) {
-//     event.target.classList.remove('highlight');
-// });
-
-
-//     /// hover panda
-// let panda = document.getElementById('panda');
-// panda.addEventListener('mouseenter', (event) => {
-//     console.log('hovered panda');
-//     event.panda.classList.remove('.black');
-//     event.panda.classList.add('.white');
-//     }
-// );
-
-//     /// hover bakery
-// let bakery = document.getElementById('bakery');
-// bakery.addEventListener('mouseenter', () => {
-//     panda.classList.add('.black');
-//     panda.classList.remove('.white');
-//     }
-// );
