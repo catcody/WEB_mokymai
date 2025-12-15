@@ -102,3 +102,18 @@ document.getElementById('reset').addEventListener('click', function(){
     document.getElementById('order-amount').value = 0;
     document.getElementById('results').innerHTML = '<p>Kol kas skaičiavimai neatlikti.</p>';
 });
+
+
+// Optional: Prevent form submission on Enter key press
+document.getElementById('bakery-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+});
+
+// Optional: Clear results when input values change
+let inputFields = document.querySelectorAll('#bakery-form input');
+inputFields.forEach(function(input) {
+    input.addEventListener('input', function() {
+        document.getElementById('results').innerHTML = '<p>Kol kas skaičiavimai neatlikti.</p>';
+    });
+});
+

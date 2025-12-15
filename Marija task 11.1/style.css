@@ -20,16 +20,11 @@ h1, h2, h3, h4, h5, h6{
     font-weight: 900;
 }
 
-/* title */
+/* - - - - - - - - - title */
 #title .black{
     color: black;
     background-color: white;
     display: inline;
-}
-
-#title #panda:hover{
-    color: rgb(0, 0, 0);
-    background-color: #ffffff;
 }
 
 #title .white{
@@ -38,12 +33,53 @@ h1, h2, h3, h4, h5, h6{
     display: inline;
     box-sizing: content-box;
 }
+/* title hover */
 
+#panda:hover{
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    transition: 0.5s;
+}
+
+#panda:hover + #bakery{
+    color: white;
+    background-color: black;
+    transition: 1.5s;
+} 
+/* 
 #title #bakery:hover{
     color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
+    transition: 0.5s;
 }
 
+#bakery:hover  #panda{
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    transition: 1.5s;
+} */
+
+#title:hover{
+    .color{
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+        transition: 0.5s;
+    }
+    .color:not(:hover){
+        color: rgb(0, 0, 0);
+        background-color: #ffffff;
+        transition: 1.5s;
+    }
+    
+}
+
+#bakery:hover  #panda{
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    transition: 1.5s;
+}
+
+/*  */
 #title h1{
     padding: 5px 10px;
     border-radius: 8px;
