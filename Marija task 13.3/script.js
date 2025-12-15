@@ -15,11 +15,7 @@ console.log("\n- - - - - - 2. - - - - - -\n");
 
 const shoppingList = ['oranges', 'shitakee mushrooms', 'beans', 'garlic'];
 
-console.log('Shopping list:')
-
-for(const listed of shoppingList){
-    console.log('-' , listed)
-}
+console.log('Amount of items:', shoppingList.length);
 
 
 // 5. Susikurkite masyvą failų pavadinimams saugoti, užpildykite jį duomenimis. Jums reikės nuskaityti šiuos failus, todėl pirma norėsite patikrinti su kuriais galite dirbti. Išveskite į ekraną tik tuos failus, kurių galūnė yra .txt arba .json tipo.
@@ -49,6 +45,6 @@ const moto = ['Opel', 'Subaru', 'Audi', 'Toyota', 'Jaguar', 'Mercedes-Benz'];
 console.log('Car models:');
 
 for(model of moto){
-    const countLetters = (model) => (model.match(/[a-zA-Z]/g) || []).length;  // counts only letters
+    const countLetters = (model) => (model.match(/[a-zA-Z]/g)).length;  // counts only letters
     console.log(model , '- word of' , countLetters(model) , 'symbols.')
 }
