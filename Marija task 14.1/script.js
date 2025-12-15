@@ -104,7 +104,7 @@ let kaina2 = knyga2.kaina;
 
 if(kaina1 < kaina2 && kaina1*2 > kaina2){
     console.log('Padvigubinta knygos' , knyga1.pavadinimas , 'kaina brangesne uz kita knyga.');
-} else if(kaina2 < kaina1 && kaina2**2 > kaina1){
+} else if(kaina2 < kaina1 && kaina2 * 2 > kaina1){
     console.log('Padvigubinta knygos' , knyga2.pavadinimas , 'kaina brangesne uz kita knyga.');
 } else if(kaina1 === kaina2){
     console.log('Kainos lygios.');
